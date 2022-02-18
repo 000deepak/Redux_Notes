@@ -1,10 +1,11 @@
 import changeTheNumber from "./updown";
+import getTheBooks from "./getBooks";
 
 import { combineReducers } from "redux";
 
 const reducers = combineReducers({
-  //   myNumber:changeTheNumber
   changeTheNumber,
 });
 
 export default reducers;
+
