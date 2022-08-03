@@ -1,0 +1,32 @@
+//redux works on 3 principles
+
+1.single source of truth(store)
+redux stores state of app in single object which is manages by store.
+
+2.only way to change the state is by emitting an action(action)
+cannot directily update the state
+
+3.pure reducers decide how the state is transformed(reducer)
+
+
+*Action
+//plain js object
+//only way to interact with stores
+//must have a type property thaat indivcates type of action
+//option can have payload
+
+*Action Creator
+//action createor is fn that returns an action
+
+*Store
+//holds app state
+//access state     -getState()
+//update state     -dispatch(action)
+//register listner -suscribe(listner)
+//unsuscribe by fn returnd by suscribe(listner)
+
+*Middleware
+used for adding additonal functionlity for redux
+used to process between dispatching an action and the moment it reaches to reducer.
+used for logging,crash reporitng and asynchronous task.
+use applyMiddleware

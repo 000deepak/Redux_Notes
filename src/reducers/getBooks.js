@@ -5,7 +5,7 @@ const initialState = {
 const getTheBooks = (state = initialState, action) => {
   switch (action.type) {
     case "GET_BOOKS":
-      return state + action.payload;
+      return { ...state, books: action.payload };
 
     default:
       return state;

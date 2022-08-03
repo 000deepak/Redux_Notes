@@ -1,19 +1,21 @@
 import React from "react";
 import axios from "axios";
 import "./App.css";
-import { incNumber } from "./store/actions/index";
-import { decNumber } from "./store/actions/index";
-import { getBooks } from "./store/actions/index";
+import { incNumber } from "./actions";
+import { decNumber } from "./actions";
+import { getBooks } from "./actions";
+
 import { useSelector, useDispatch } from "react-redux";
 
 const App = () => {
-  //getting number value
+  // it alternative to the useContext hooks in react / consumer from context API
   const changeTheNumber = useSelector((state) => state.changeTheNumber);
 
   //getting state values
-  const books = useSelector((book) => book);
+  const books = useSelector((state) => state.getTheBooks);
 
-  //creating dispact to call action method
+  console.log(books, "books in app.js");
+
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -24,7 +26,8 @@ const App = () => {
     const books = axios
       .get("https://bookstore.incubation.bridgelabz.com/bookstore_user/get/book")
       .then((res) => {
-        dispatch(getBooks(res.data.data));
+        console.log(res.data.result);
+        dispatch(getBooks(res.data.result));
       });
   };
 
@@ -40,7 +43,7 @@ const App = () => {
               <span>-</span>
             </a>
             <input name="quantity" type="text" class="quantity__input" value={changeTheNumber} />
-            <a class="quantity__plus" title="Increment" onClick={() => dispatch(incNumber(10))}>
+            <a class="quantity__plus" title="Increment" onClick={() => dispatch(incNumber(5))}>
               <span>+</span>
             </a>
           </div>

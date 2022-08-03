@@ -4,6 +4,7 @@ export const getBooks = (books) => {
     payload: books,
   };
 };
+
 export const incNumber = (num) => {
   return {
     type: "INCREMENT",
